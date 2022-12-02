@@ -27,7 +27,6 @@ class InfoSourceStub(InfoSource):
         return self.info
 
 
-# Movie(1, {'plm':'asd'})
 
 @dataclass
 class Library(object):
@@ -49,6 +48,7 @@ class MyTestCase(unittest.TestCase):
         imdb_id = "tt1234"
         movie = Movie(imdb_id, None)
         library = Library([movie], None, None)
+        print(library.find_movie(imdb_id).imdb_id)
         self.assertEqual(imdb_id, library.find_movie(imdb_id).imdb_id)
 
     def test_adds_movie_to_library_with_movie_info(self):
